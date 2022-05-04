@@ -45,9 +45,10 @@ class AttackModel(BaseModel):
     phrase: Optional[str1024]
     thumb: Optional[str255]
     extra_crit_damage: Optional[str255]
-    
+
     def dict(self, *args, **kwargs):
-        return super().dict(*args, **kwargs, by_alias=True)
+        kwargs.setdefault("by_alias", True)
+        return super().dict(*args, **kwargs)
 
 
 # ==== effects ====
