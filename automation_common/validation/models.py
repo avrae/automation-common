@@ -262,4 +262,5 @@ class Check(Effect):
 
 
 # --- misc ---
+AttackModel.update_forward_refs()
 ValidatedAutomation.update_forward_refs()
