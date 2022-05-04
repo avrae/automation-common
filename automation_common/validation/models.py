@@ -251,10 +251,39 @@ class CastSpell(Effect):
 
 
 # --- check ---
+AbilityType = Literal[
+    "acrobatics",
+    "animalHandling",
+    "arcana",
+    "athletics",
+    "deception",
+    "history",
+    "initiative",
+    "insight",
+    "intimidation",
+    "investigation",
+    "medicine",
+    "nature",
+    "perception",
+    "performance",
+    "persuasion",
+    "religion",
+    "sleightOfHand",
+    "stealth",
+    "survival",
+    "strength",
+    "dexterity",
+    "constitution",
+    "intelligence",
+    "wisdom",
+    "charisma",
+]
+
+
 class Check(Effect):
     type: Literal["check"]
-    ability: Union[List[str255], str255]
-    contestAbility: Optional[Union[List[str255], str255]]
+    ability: Union[List[AbilityType], AbilityType]
+    contestAbility: Optional[Union[List[AbilityType], AbilityType]]
     dc: Optional[IntExpression]
     success: Optional[ValidatedAutomation]
     fail: Optional[ValidatedAutomation]
