@@ -259,3 +259,7 @@ class Check(Effect):
     success: Optional[ValidatedAutomation]
     fail: Optional[ValidatedAutomation]
     contestTie: Optional[Literal["fail", "success", "neither"]]
+
+
+# --- misc ---
+ValidatedAutomation.update_forward_refs()
