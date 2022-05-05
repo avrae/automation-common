@@ -19,6 +19,7 @@ AnnotatedString255 = str255
 AnnotatedString1024 = str1024
 AnnotatedString4096 = str4096
 IntExpression = str255
+AdvantageType = Literal[-1, 0, 1]
 
 
 # --- Helper Models ---
@@ -105,6 +106,7 @@ class Save(Effect):
     fail: ValidatedAutomation
     success: ValidatedAutomation
     dc: Optional[IntExpression]
+    adv: Optional[AdvantageType]
 
 
 # --- damage ---
@@ -295,6 +297,7 @@ class Check(Effect):
     success: Optional[ValidatedAutomation]
     fail: Optional[ValidatedAutomation]
     contestTie: Optional[Literal["fail", "success", "neither"]]
+    adv: Optional[AdvantageType]
 
 
 # --- misc ---
