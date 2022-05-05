@@ -63,6 +63,7 @@ class ValidatedAutomation(BaseModel):  # named to prevent namespace conflicts wi
                 TempHP,
                 LegacyIEffect,
                 IEffect,
+                RemoveIEffect,
                 Roll,
                 Text,
                 SetVariable,
