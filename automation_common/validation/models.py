@@ -143,6 +143,8 @@ class PassiveEffects(BaseModel):
     save_adv: Optional[List[AnnotatedString255]]
     save_dis: Optional[List[AnnotatedString255]]
     check_bonus: Optional[AnnotatedString255]
+    check_adv: Optional[List[AnnotatedString255]]
+    check_dis: Optional[List[AnnotatedString255]]
 
 
 class AttackInteraction(BaseModel):
