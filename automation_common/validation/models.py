@@ -192,6 +192,7 @@ class IEffect(Effect):
     end: Optional[bool]
     conc: Optional[bool]
     desc: Optional[AnnotatedString1024]
+    stacking: Optional[bool]
     save_as: Optional[str255]
     parent: Optional[str255]
 
