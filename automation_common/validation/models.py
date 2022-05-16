@@ -218,7 +218,7 @@ class Roll(Effect):
 # --- text ---
 class Text(Effect):
     type: Literal["text"]
-    text: Union[AbilityReference, AnnotatedString4096]
+    text: Union[AbilityReference, constr(max_length=4096, strip_whitespace=True, strict=True)]
 
 
 # --- variable ---
@@ -244,7 +244,7 @@ class Condition(Effect):
 # --- counter ---
 class UseCounter(Effect):
     type: Literal["counter"]
-    counter: Union[SpellSlotReference, AbilityReference, str255]
+    counter: Union[SpellSlotReference, AbilityReference, constr(max_length=255, strip_whitespace=True, strict=True)]
     amount: IntExpression
     allowOverflow: Optional[bool]
     errorBehaviour: Optional[Literal["warn", "raise"]]
