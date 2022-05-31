@@ -7,10 +7,27 @@ import abc
 from typing import Annotated, Dict, List, Literal, Optional, Union
 
 from pydantic import BaseModel, Field, conint, constr, validator
+from pydantic.fields import ModelField
 
 from .field_validators import str_is_identifier
 
+
 # ==== helpers ====
+class AutomationModel(BaseModel):
+    # noinspection PyMethodParameters
+    @validator("*")
+    def empty_string_to_none(cls, value, field: ModelField):
+        """
+        If the field is some sort of `Optional[str]` and the value is an empty string, yield None instead.
+
+        This helps with automation made on the web dashboard, which sets optional fields to empty string rather than
+        None.
+        """
+        if value == "" and field.allow_none and issubclass(field.type_, str):
+            return None
+        return value
+
+
 # --- helper types ---
 str255 = constr(max_length=255, strip_whitespace=True)
 str1024 = constr(max_length=1024, strip_whitespace=True)
@@ -23,20 +40,20 @@ AdvantageType = Literal[-1, 0, 1]
 
 
 # --- Helper Models ---
-class HigherLevels(BaseModel):
+class HigherLevels(AutomationModel):
     __root__: Dict[constr(regex=r"[0-9]"), str255]
 
 
-class SpellSlotReference(BaseModel):
+class SpellSlotReference(AutomationModel):
     slot: Union[conint(ge=1, le=9), str255]
 
 
-class AbilityReference(BaseModel):
+class AbilityReference(AutomationModel):
     id: int
     typeId: int
 
 
-class AttackModel(BaseModel):
+class AttackModel(AutomationModel):
     v: Literal[2] = Field(..., alias="_v")
     name: str255
     automation: ValidatedAutomation
@@ -53,7 +70,7 @@ class AttackModel(BaseModel):
 
 
 # ==== effects ====
-class ValidatedAutomation(BaseModel):  # named to prevent namespace conflicts with actual automation engine
+class ValidatedAutomation(AutomationModel):  # named to prevent namespace conflicts with actual automation engine
     __root__: List[
         Annotated[
             Union[
@@ -78,7 +95,7 @@ class ValidatedAutomation(BaseModel):  # named to prevent namespace conflicts wi
     ]
 
 
-class Effect(BaseModel, abc.ABC):
+class Effect(AutomationModel, abc.ABC):
     type: str
     meta: Optional[ValidatedAutomation]
 
@@ -128,7 +145,7 @@ class TempHP(Effect):
 
 # --- ieffect ---
 # -- helpers --
-class PassiveEffects(BaseModel):
+class PassiveEffects(AutomationModel):
     attack_advantage: Optional[IntExpression]
     to_hit_bonus: Optional[AnnotatedString255]
     damage_bonus: Optional[AnnotatedString255]
@@ -150,14 +167,14 @@ class PassiveEffects(BaseModel):
     check_dis: Optional[List[AnnotatedString255]]
 
 
-class AttackInteraction(BaseModel):
+class AttackInteraction(AutomationModel):
     attack: AttackModel
     defaultDC: Optional[IntExpression]
     defaultAttackBonus: Optional[IntExpression]
     defaultCastingMod: Optional[IntExpression]
 
 
-class ButtonInteraction(BaseModel):
+class ButtonInteraction(AutomationModel):
     automation: ValidatedAutomation
     label: constr(max_length=80, min_length=1, strip_whitespace=True)
     verb: Optional[AnnotatedString255]
