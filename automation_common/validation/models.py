@@ -264,7 +264,7 @@ class UseCounter(Effect):
     counter: Union[SpellSlotReference, AbilityReference, constr(max_length=255, strip_whitespace=True, strict=True)]
     amount: IntExpression
     allowOverflow: Optional[bool]
-    errorBehaviour: Optional[Literal["warn", "raise"]]
+    errorBehaviour: Optional[Literal["warn", "raise", "ignore"]]
 
 
 # --- spell ---
