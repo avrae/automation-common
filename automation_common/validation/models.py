@@ -219,6 +219,7 @@ class IEffect(Effect):
 # --- remove_ieffect ---
 class RemoveIEffect(Effect):
     type: Literal["remove_ieffect"]
+    target: Optional[str255]
     removeParent: Optional[Literal["always", "if_no_children"]]
 
 
