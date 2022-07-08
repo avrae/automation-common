@@ -9,6 +9,7 @@ from typing import Annotated, Dict, List, Literal, Optional, Union
 from pydantic import BaseModel, Field, conint, constr, validator
 from pydantic.fields import ModelField
 
+from . import enums
 from .field_validators import str_is_identifier
 
 
@@ -63,6 +64,7 @@ class AttackModel(AutomationModel):
     phrase: Optional[str1024]
     thumb: Optional[str255]
     extra_crit_damage: Optional[str255]
+    activation_type: Optional[enums.ActivationType]
 
     def dict(self, *args, **kwargs):
         kwargs.setdefault("by_alias", True)
