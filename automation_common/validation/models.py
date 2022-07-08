@@ -114,6 +114,7 @@ class Attack(Effect):
     hit: ValidatedAutomation
     miss: ValidatedAutomation
     attackBonus: Optional[IntExpression]
+    adv: Optional[IntExpression]
 
 
 # --- save ---
