@@ -6,7 +6,7 @@ from __future__ import annotations
 import abc
 from typing import Annotated, Dict, List, Literal, Optional, Union
 
-from pydantic import BaseModel, Field, conint, constr, validator
+from pydantic import BaseModel, Field, conint, conlist, constr, validator
 from pydantic.fields import ModelField
 
 from . import enums
@@ -312,8 +312,8 @@ AbilityType = Literal[
 
 class Check(Effect):
     type: Literal["check"]
-    ability: Union[List[AbilityType], AbilityType]
-    contestAbility: Optional[Union[List[AbilityType], AbilityType]]
+    ability: Union[conlist(AbilityType, min_items=1), AbilityType]
+    contestAbility: Optional[Union[conlist(AbilityType, min_items=1), AbilityType]]
     dc: Optional[IntExpression]
     success: Optional[ValidatedAutomation]
     fail: Optional[ValidatedAutomation]
