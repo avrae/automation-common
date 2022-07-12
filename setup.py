@@ -8,7 +8,7 @@ with open("requirements.txt", "r") as fh:
 
 setuptools.setup(
     name="avrae-automation-common",
-    version="4.1.2",
+    version="4.1.3",
     author="Andrew Zhu",
     author_email="andrew@zhu.codes",
     description="Common automation utilities for Avrae",
