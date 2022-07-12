@@ -67,7 +67,7 @@ class AttackModel(AutomationModel):
     activation_type: Optional[enums.ActivationType]
 
     def dict(self, *args, **kwargs):
-        kwargs.setdefault("by_alias", True)
+        kwargs["by_alias"] = True
         return super().dict(*args, **kwargs)
 
 
