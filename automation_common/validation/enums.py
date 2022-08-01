@@ -9,3 +9,6 @@ class ActivationType(enum.IntEnum):
     MINUTE = 6
     HOUR = 7
     SPECIAL = 8
+    LEGENDARY = 9
+    MYTHIC = 10
+    LAIR = 11
