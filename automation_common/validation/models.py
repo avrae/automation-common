@@ -278,6 +278,7 @@ class CastSpell(Effect):
     dc: Optional[IntExpression]
     attackBonus: Optional[IntExpression]
     castingMod: Optional[IntExpression]
+    parent: Optional[str255]
 
 
 # --- check ---
