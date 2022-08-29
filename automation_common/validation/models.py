@@ -233,6 +233,7 @@ class Roll(Effect):
     higher: Optional[HigherLevels]
     cantripScale: Optional[bool]
     hidden: Optional[bool]
+    displayName: Optional[str255]
 
 
 # --- text ---
