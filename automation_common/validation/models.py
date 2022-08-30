@@ -233,6 +233,7 @@ class Roll(Effect):
     higher: Optional[HigherLevels]
     cantripScale: Optional[bool]
     hidden: Optional[bool]
+    displayName: Optional[str255]
 
 
 # --- text ---
@@ -278,6 +279,7 @@ class CastSpell(Effect):
     dc: Optional[IntExpression]
     attackBonus: Optional[IntExpression]
     castingMod: Optional[IntExpression]
+    parent: Optional[str255]
 
 
 # --- check ---
