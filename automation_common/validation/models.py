@@ -204,7 +204,7 @@ class LegacyIEffect(Effect):
 
 class IEffect(Effect):
     type: Literal["ieffect2"]
-    name: str255
+    name: AnnotatedString255
     duration: Optional[IntExpression]
     effects: Optional[PassiveEffects]
     attacks: Optional[List[AttackInteraction]]
@@ -240,6 +240,7 @@ class Roll(Effect):
 class Text(Effect):
     type: Literal["text"]
     text: Union[AbilityReference, constr(max_length=4096, strip_whitespace=True, strict=True)]
+    title: Optional[str255]
 
 
 # --- variable ---
