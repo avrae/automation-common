@@ -216,7 +216,7 @@ class IEffect(Effect):
     stacking: Optional[bool]
     save_as: Optional[str255]
     parent: Optional[str255]
-    self_target: Optional[bool]
+    target_self: Optional[bool]
 
     _save_as_identifier = validator("save_as", allow_reuse=True)(str_is_identifier)
 
