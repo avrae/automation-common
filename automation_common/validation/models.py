@@ -215,6 +215,7 @@ class IEffect(Effect):
     stacking: Optional[bool]
     save_as: Optional[str255]
     parent: Optional[str255]
+    self_target: Optional[bool]
 
     _save_as_identifier = validator("save_as", allow_reuse=True)(str_is_identifier)
 
@@ -234,6 +235,7 @@ class Roll(Effect):
     cantripScale: Optional[bool]
     hidden: Optional[bool]
     displayName: Optional[str255]
+    fixedValue: Optional[bool]
 
 
 # --- text ---
@@ -270,6 +272,7 @@ class UseCounter(Effect):
     amount: IntExpression
     allowOverflow: Optional[bool]
     errorBehaviour: Optional[Literal["warn", "raise", "ignore"]]
+    fixedValue: Optional[bool]
 
 
 # --- spell ---
