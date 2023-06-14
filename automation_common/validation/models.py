@@ -136,6 +136,7 @@ class Damage(Effect):
     overheal: Optional[bool]
     higher: Optional[HigherLevels]
     cantripScale: Optional[bool]
+    fixedValue: Optional[bool]
 
 
 # --- temphp ---
