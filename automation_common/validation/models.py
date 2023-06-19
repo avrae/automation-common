@@ -218,6 +218,7 @@ class IEffect(Effect):
     save_as: Optional[str255]
     parent: Optional[str255]
     target_self: Optional[bool]
+    tick_on_caster: Optional[bool]
 
     _save_as_identifier = validator("save_as", allow_reuse=True)(str_is_identifier)
 
