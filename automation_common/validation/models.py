@@ -126,7 +126,7 @@ class Save(Effect):
     fail: ValidatedAutomation
     success: ValidatedAutomation
     dc: Optional[IntExpression]
-    adv: Optional[AdvantageType]
+    adv: Optional[IntExpression]
 
 
 # --- damage ---
@@ -327,7 +327,7 @@ class Check(Effect):
     success: Optional[ValidatedAutomation]
     fail: Optional[ValidatedAutomation]
     contestTie: Optional[Literal["fail", "success", "neither"]]
-    adv: Optional[AdvantageType]
+    adv: Optional[IntExpression]
 
 
 # --- misc ---
