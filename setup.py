@@ -7,14 +7,14 @@ with open("requirements.txt", "r") as fh:
     requirements = [line.strip() for line in fh.readlines()]
 
 setuptools.setup(
-    name="Lathaon-automation-common",
+    name="avrae-automation-common",
     version="4.2.47",
     author="Andrew Zhu",
     author_email="andrew@zhu.codes",
     description="Common automation utilities for Avrae",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Lathaon/automation-common",
+    url="https://github.com/avrae/automation-common",
     packages=setuptools.find_packages(exclude=("tests",)),
     classifiers=[
         "Programming Language :: Python :: 3",
