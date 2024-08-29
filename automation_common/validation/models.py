@@ -120,9 +120,12 @@ class Attack(Effect):
 
 
 # --- save ---
+SaveType = Literal["str", "dex", "con", "int", "wis", "cha"]
+
+
 class Save(Effect):
     type: Literal["save"]
-    stat: Literal["str", "dex", "con", "int", "wis", "cha"]
+    stat: Union[conlist(SaveType, min_items=1), SaveType]
     fail: ValidatedAutomation
     success: ValidatedAutomation
     dc: Optional[IntExpression]
