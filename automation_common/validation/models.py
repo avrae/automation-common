@@ -65,6 +65,7 @@ class AttackModel(AutomationModel):
     thumb: Optional[str255]
     extra_crit_damage: Optional[str255]
     activation_type: Optional[enums.ActivationType]
+    list_display_override: Optional[str255]
 
     def dict(self, *args, **kwargs):
         kwargs["by_alias"] = True
