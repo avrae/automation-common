@@ -33,9 +33,11 @@ class AutomationModel(BaseModel):
 str255 = constr(max_length=255, strip_whitespace=True)
 str1024 = constr(max_length=1024, strip_whitespace=True)
 str4096 = constr(max_length=4096, strip_whitespace=True)
+str10240 = constr(max_length=10240, strip_whitespace=True)
 AnnotatedString255 = str255
 AnnotatedString1024 = str1024
 AnnotatedString4096 = str4096
+AnnotatedString10240 = str10240
 IntExpression = str255
 AdvantageType = Literal[-1, 0, 1]
 
