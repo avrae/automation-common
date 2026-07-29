@@ -203,6 +203,7 @@ class LegacyIEffect(Effect):
     stacking: Optional[bool]
     save_as: Optional[str255]
     parent: Optional[str255]
+    hidden: Optional[bool]
 
     _save_as_identifier = validator("save_as", allow_reuse=True)(str_is_identifier)
 
@@ -222,6 +223,7 @@ class IEffect(Effect):
     parent: Optional[str255]
     target_self: Optional[bool]
     tick_on_caster: Optional[bool]
+    hidden: Optional[bool]
 
     _save_as_identifier = validator("save_as", allow_reuse=True)(str_is_identifier)
 
